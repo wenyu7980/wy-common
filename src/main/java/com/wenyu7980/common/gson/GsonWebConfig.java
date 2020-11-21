@@ -1,8 +1,9 @@
-package com.wenyu7980.common.json;
+package com.wenyu7980.common.gson;
 
 import com.google.gson.*;
-import com.wenyu7980.common.json.adapter.LocalDateAdapter;
-import com.wenyu7980.common.json.adapter.LocalDateTimeAdapter;
+import com.wenyu7980.common.gson.adapter.LocalDateAdapter;
+import com.wenyu7980.common.gson.adapter.LocalDateTimeAdapter;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -17,6 +18,7 @@ import java.util.List;
  *
  * @author wenyu
  */
+@Configuration
 public class GsonWebConfig implements WebMvcConfigurer {
     private final Gson GSON;
 

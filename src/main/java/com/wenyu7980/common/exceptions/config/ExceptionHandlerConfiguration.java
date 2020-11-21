@@ -32,15 +32,15 @@ public class ExceptionHandlerConfiguration {
             } else {
                 LOGGER.debug("异常", e);
             }
-            return new ResponseEntity(new ErrorResponseBody(exception.getCode(), exception.getMessage()),
+            return new ResponseEntity<>(new ErrorResponseBody(exception.getCode(), exception.getMessage()),
               exception.getStatus());
         }
         if (e instanceof MethodArgumentNotValidException) {
             BindingResult result = ((MethodArgumentNotValidException) e).getBindingResult();
-            String message = result.getFieldErrors().stream().map(error -> {
-                return error.getField() + error.getDefaultMessage() + ",值:" + error.getRejectedValue();
-            }).collect(Collectors.joining(","));
-            return new ResponseEntity(new ErrorResponseBody(400, message), HttpStatus.BAD_REQUEST);
+            String message = result.getFieldErrors().stream()
+              .map(error -> error.getField() + error.getDefaultMessage() + ",值:" + error.getRejectedValue())
+              .collect(Collectors.joining(","));
+            return new ResponseEntity<>(new ErrorResponseBody(400, message), HttpStatus.BAD_REQUEST);
         }
         LOGGER.error("系统错误", e);
         return new ResponseEntity<>(new ErrorResponseBody(500, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);

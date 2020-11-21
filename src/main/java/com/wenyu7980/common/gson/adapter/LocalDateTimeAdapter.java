@@ -1,4 +1,4 @@
-package com.wenyu7980.common.json.adapter;
+package com.wenyu7980.common.gson.adapter;
 
 import com.google.gson.*;
 
