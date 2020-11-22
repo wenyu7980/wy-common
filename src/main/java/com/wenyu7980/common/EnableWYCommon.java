@@ -15,9 +15,9 @@ import java.lang.annotation.*;
 @Documented
 @EnableGson
 @EnableException
-@EnableWYSwagger(name = "", basePackage = "")
+@EnableWYSwagger
 public @interface EnableWYCommon {
-    @AliasFor(annotation = EnableWYSwagger.class) String name();
+    @AliasFor(annotation = EnableWYSwagger.class) String name() default "";
 
-    @AliasFor(annotation = EnableWYSwagger.class) String basePackage();
+    @AliasFor(annotation = EnableWYSwagger.class) String basePackage() default "";
 }

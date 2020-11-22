@@ -14,7 +14,15 @@ import java.lang.annotation.*;
 @EnableOpenApi
 @Import(SwaggerConfig.class)
 public @interface EnableWYSwagger {
-    String name();
+    /**
+     * 默认${spring.application.name}
+     * @return
+     */
+    String name() default "";
 
-    String basePackage();
+    /**
+     * 默认被注解类所在的包
+     * @return
+     */
+    String basePackage() default "";
 }

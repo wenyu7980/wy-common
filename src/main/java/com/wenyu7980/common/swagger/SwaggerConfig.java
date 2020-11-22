@@ -1,8 +1,10 @@
 package com.wenyu7980.common.swagger;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportAware;
 import org.springframework.core.type.AnnotationMetadata;
+import org.springframework.core.type.StandardAnnotationMetadata;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -24,8 +26,9 @@ import java.util.Map;
  */
 public class SwaggerConfig implements WebMvcConfigurer, ImportAware {
 
-    private String basePackage;
+    @Value("${spring.application.name:''}")
     private String name;
+    private String basePackage;
 
     @Bean
     public Docket docket() {
@@ -54,8 +57,14 @@ public class SwaggerConfig implements WebMvcConfigurer, ImportAware {
 
     @Override
     public void setImportMetadata(AnnotationMetadata annotationMetadata) {
-        Map<String, Object> attributes = annotationMetadata.getAnnotationAttributes(EnableWYSwagger.class.getName());
+        StandardAnnotationMetadata metadata = (StandardAnnotationMetadata) annotationMetadata;
+        Map<String, Object> attributes = metadata.getAnnotationAttributes(EnableWYSwagger.class.getName());
         this.basePackage = attributes.get("basePackage").toString();
-        this.name = attributes.get("name").toString();
+        if ("".equals(basePackage)) {
+            this.basePackage = metadata.getIntrospectedClass().getPackage().getName();
+        }
+        if (!"".equals(attributes.getOrDefault("name", ""))) {
+            this.name = attributes.get("name").toString();
+        }
     }
 }
