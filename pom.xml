@@ -6,34 +6,27 @@
 
     <groupId>com.wenyu7980</groupId>
     <artifactId>wy-common</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
+    <modules>
+        <module>wy-common-data-jpa</module>
+        <module>wy-common-exception</module>
+        <module>wy-common-exception-config</module>
+        <module>wy-common-gson</module>
+        <module>wy-common-gson-config</module>
+        <module>wy-common-config</module>
+        <module>wy-common-feign-client</module>
+    </modules>
     <parent>
         <groupId>com.wenyu7980</groupId>
         <artifactId>wy-parent</artifactId>
         <version>1.0.0</version>
     </parent>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
