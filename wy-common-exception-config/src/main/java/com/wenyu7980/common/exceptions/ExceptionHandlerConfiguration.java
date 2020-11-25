@@ -31,7 +31,7 @@ public class ExceptionHandlerConfiguration {
                 LOGGER.debug("异常", e);
             }
             return new ResponseEntity<>(new ErrorResponseBody(exception.getCode(), exception.getMessage()),
-              exception.getStatus());
+              HttpStatus.resolve(exception.getStatus()));
         }
         if (e instanceof MethodArgumentNotValidException) {
             BindingResult result = ((MethodArgumentNotValidException) e).getBindingResult();
