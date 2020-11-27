@@ -8,12 +8,12 @@ public class ErrorResponseBody {
     private int code;
     private String message;
 
-    public ErrorResponseBody(int code, Object data) {
-        this.code = code;
+    public ErrorResponseBody() {
     }
 
     public ErrorResponseBody(int code, String message) {
         this.code = code;
+        this.message = message;
     }
 
     public int getCode() {
