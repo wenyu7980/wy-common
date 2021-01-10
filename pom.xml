@@ -14,7 +14,6 @@
         <module>wy-common-exception-config</module>
         <module>wy-common-gson</module>
         <module>wy-common-gson-config</module>
-        <module>wy-common-config</module>
         <module>wy-common-feign-client</module>
     </modules>
     <parent>
