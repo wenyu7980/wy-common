@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-        <module>wy-common-data-jpa</module>
         <module>wy-common-exception</module>
         <module>wy-common-exception-config</module>
         <module>wy-common-gson</module>
@@ -17,6 +16,8 @@
         <module>wy-common-feign-client</module>
         <module>wy-common-authentication</module>
         <module>wy-common-authentication-util</module>
+        <module>wy-common-data-jpa-query</module>
+        <module>wy-common-data-jpa-generator</module>
     </modules>
     <parent>
         <groupId>com.wenyu7980</groupId>
