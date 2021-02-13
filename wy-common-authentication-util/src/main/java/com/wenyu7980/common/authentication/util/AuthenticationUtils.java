@@ -22,4 +22,8 @@ public class AuthenticationUtils {
     public static void initSystem() {
         LOCALS.set(new AuthenticationInfo("1"));
     }
+
+    public static AuthenticationInfo get() {
+        return LOCALS.get();
+    }
 }
