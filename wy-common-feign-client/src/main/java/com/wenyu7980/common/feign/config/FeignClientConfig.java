@@ -2,6 +2,7 @@ package com.wenyu7980.common.feign.config;
 
 import com.google.gson.Gson;
 import com.wenyu7980.common.exceptions.ErrorResponseBody;
+import com.wenyu7980.common.exceptions.code400.code401.InsufficientException;
 import com.wenyu7980.common.exceptions.code403.LoginFailException;
 import com.wenyu7980.common.exceptions.code404.NotFoundException;
 import com.wenyu7980.common.exceptions.code500.SystemException;
@@ -54,6 +55,11 @@ public class FeignClientConfig {
                 if (response.status() == 403) {
                     if (body.getCode() == 1) {
                         return new LoginFailException(body.getMessage());
+                    }
+                }
+                if (response.status() == 401) {
+                    if (body.getCode() == 1) {
+                        return new InsufficientException(body.getMessage());
                     }
                 }
                 if (response.status() == 500) {

@@ -16,7 +16,7 @@ public class AuthenticationUtils {
     }
 
     public static String userId() {
-        return LOCALS.get().getUserId();
+        return LOCALS.get() == null ? "1" : LOCALS.get().getUserId();
     }
 
     public static void initSystem() {
