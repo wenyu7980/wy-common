@@ -20,6 +20,7 @@
         <module>wy-common-data-jpa-generator</module>
         <module>wy-common-data-jpa-audit</module>
         <module>wy-common-data-jpa</module>
+        <module>wy-common-converter-kryo</module>
     </modules>
     <parent>
         <groupId>com.wenyu7980</groupId>
