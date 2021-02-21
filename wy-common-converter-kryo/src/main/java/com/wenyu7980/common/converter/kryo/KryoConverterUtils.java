@@ -1,13 +1,9 @@
 package com.wenyu7980.common.converter.kryo;
 
 import com.esotericsoftware.kryo.kryo5.Kryo;
-import com.esotericsoftware.kryo.kryo5.io.ByteBufferInputStream;
-import com.esotericsoftware.kryo.kryo5.io.ByteBufferOutputStream;
 import com.esotericsoftware.kryo.kryo5.io.Input;
 import com.esotericsoftware.kryo.kryo5.io.Output;
 import com.esotericsoftware.kryo.kryo5.util.Pool;
-
-import java.nio.ByteBuffer;
 
 /**
  *
@@ -25,22 +21,26 @@ public abstract class KryoConverterUtils {
         }
     };
 
-    public static <T> ByteBuffer write(T object) {
+    public static <T> byte[] write(T object) {
+        if (object == null) {
+            return null;
+        }
         Kryo kryo = POOLS.obtain();
-        ByteBufferOutputStream outputStream = new ByteBufferOutputStream();
-        try (Output output = new Output(outputStream)) {
+        try (Output output = new Output(1024, -1)) {
             kryo.writeClassAndObject(output, object);
+            return output.toBytes();
         } finally {
             POOLS.free(kryo);
         }
-        return outputStream.getByteBuffer();
     }
 
-    public static <T> T read(ByteBuffer byteBuffer, Class<T> clazz) {
+    public static <T> T read(byte[] bytes, Class<T> clazz) {
+        if (bytes == null) {
+            return null;
+        }
         Kryo kryo = POOLS.obtain();
-        ByteBufferInputStream inputStream = new ByteBufferInputStream(byteBuffer);
-        try (Input input = new Input(inputStream)) {
-            return kryo.readObjectOrNull(input, clazz);
+        try (Input input = new Input(bytes)) {
+            return (T) kryo.readClassAndObject(input);
         } finally {
             POOLS.free(kryo);
         }
