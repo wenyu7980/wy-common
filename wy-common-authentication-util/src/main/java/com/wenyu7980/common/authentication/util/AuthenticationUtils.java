@@ -1,5 +1,7 @@
 package com.wenyu7980.common.authentication.util;
 
+import java.util.Optional;
+
 /**
  *
  * @author wenyu
@@ -16,14 +18,14 @@ public class AuthenticationUtils {
     }
 
     public static String userId() {
-        return LOCALS.get() == null ? "1" : LOCALS.get().getUserId();
+        return LOCALS.get() == null ? null : LOCALS.get().getUserId();
     }
 
     public static void initSystem() {
-        LOCALS.set(new AuthenticationInfo("1"));
+        LOCALS.set(new AuthenticationInfo());
     }
 
-    public static AuthenticationInfo get() {
-        return LOCALS.get();
+    public static Optional<AuthenticationInfo> get() {
+        return Optional.ofNullable(LOCALS.get());
     }
 }

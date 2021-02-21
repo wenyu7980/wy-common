@@ -21,6 +21,8 @@
         <module>wy-common-data-jpa-audit</module>
         <module>wy-common-data-jpa</module>
         <module>wy-common-converter-kryo</module>
+        <module>wy-common-data-auth-util</module>
+        <module>wy-common-data-auth</module>
     </modules>
     <parent>
         <groupId>com.wenyu7980</groupId>
