@@ -15,14 +15,15 @@
         <module>wy-common-gson-config</module>
         <module>wy-common-feign-client</module>
         <module>wy-common-authentication</module>
-        <module>wy-common-authentication-util</module>
+        <module>wy-common-authentication-config</module>
         <module>wy-common-data-jpa-query</module>
         <module>wy-common-data-jpa-generator</module>
         <module>wy-common-data-jpa-audit</module>
-        <module>wy-common-data-jpa</module>
+        <module>wy-common-data-jpa-dependencies</module>
         <module>wy-common-converter-kryo</module>
-        <module>wy-common-data-auth-util</module>
+        <module>wy-common-data-auth-annotation</module>
         <module>wy-common-data-auth</module>
+        <module>wy-common-dependencies</module>
     </modules>
     <parent>
         <groupId>com.wenyu7980</groupId>

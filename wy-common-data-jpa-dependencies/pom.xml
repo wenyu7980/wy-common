@@ -8,22 +8,24 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>wy-common-gson-config</artifactId>
+    <artifactId>wy-common-data-jpa-dependencies</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <scope>compile</scope>
+            <groupId>com.wenyu7980</groupId>
+            <artifactId>wy-common-data-jpa-audit</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-gson</artifactId>
+            <artifactId>wy-common-data-jpa-generator</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wenyu7980</groupId>
+            <artifactId>wy-common-data-jpa-query</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
+
+
 </project>
