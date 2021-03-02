@@ -1,4 +1,4 @@
-package com.wenyu7980.common.authentication.util;
+package com.wenyu7980.common.context.domain;
 
 import java.util.*;
 
@@ -6,25 +6,25 @@ import java.util.*;
  *
  * @author wenyu
  */
-public class AuthenticationInfo {
+public class ContextInfo {
     /** 用户id */
     private String userId;
     /** 所属部门  */
-    private Set<AuthenticationDepartment> departments = new HashSet<>();
+    private Set<ContextDepartment> departments = new HashSet<>();
     /** matrix权限 */
     private Set<AuthenticationMatrix> matrices = new HashSet<>();
     /** 请求 */
-    private AuthenticationRequest request;
+    private ContextRequest request;
     /** 资源部门 */
     transient private Map<String, Set<String>> resourceDepartments = new HashMap<>();
     /** 权限部门 */
     transient private Map<PermissionKey, Set<String>> permissionDepartments = new HashMap<>();
 
-    public AuthenticationInfo() {
+    public ContextInfo() {
     }
 
-    public AuthenticationInfo(String userId, Set<AuthenticationDepartment> departments,
-      Set<AuthenticationMatrix> matrices, AuthenticationRequest request) {
+    public ContextInfo(String userId, Set<ContextDepartment> departments,
+      Set<AuthenticationMatrix> matrices, ContextRequest request) {
         this.userId = userId;
         this.departments = departments;
         this.request = request;
@@ -35,7 +35,7 @@ public class AuthenticationInfo {
         return userId;
     }
 
-    public Set<AuthenticationDepartment> getDepartments() {
+    public Set<ContextDepartment> getDepartments() {
         return departments;
     }
 
@@ -51,7 +51,7 @@ public class AuthenticationInfo {
         this.userId = userId;
     }
 
-    private void setDepartments(Set<AuthenticationDepartment> departments) {
+    private void setDepartments(Set<ContextDepartment> departments) {
         this.departments = departments;
     }
 

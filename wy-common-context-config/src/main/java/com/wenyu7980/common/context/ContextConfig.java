@@ -1,4 +1,4 @@
-package com.wenyu7980.common.authentication;
+package com.wenyu7980.common.context;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,11 +13,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.wenyu7980.common.authentication")
-public class AuthenticationConfig implements WebMvcConfigurer {
+@ComponentScan("com.wenyu7980.common.context")
+public class ContextConfig implements WebMvcConfigurer {
 
     @Autowired
-    private AuthenticationHandlerInterceptor handlerInterceptor;
+    private ContextHandlerInterceptor handlerInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

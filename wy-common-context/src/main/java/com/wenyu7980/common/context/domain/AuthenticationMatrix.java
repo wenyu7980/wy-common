@@ -1,4 +1,4 @@
-package com.wenyu7980.common.authentication.util;
+package com.wenyu7980.common.context.domain;
 
 import java.util.Objects;
 import java.util.Set;

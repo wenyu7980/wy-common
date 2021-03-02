@@ -1,8 +1,8 @@
-package com.wenyu7980.common.authentication;
+package com.wenyu7980.common.context;
 
 import com.google.gson.Gson;
-import com.wenyu7980.common.authentication.util.AuthenticationInfo;
-import com.wenyu7980.common.authentication.util.AuthenticationUtils;
+import com.wenyu7980.common.context.domain.ContextInfo;
+import com.wenyu7980.common.context.domain.ContextUtils;
 import com.wenyu7980.common.gson.adapter.GsonUtil;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -18,6 +18,6 @@ public class HeaderRequestInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate template) {
-        template.header("authInfo", GSON.toJson(AuthenticationUtils.get().orElse(new AuthenticationInfo())));
+        template.header("context", GSON.toJson(ContextUtils.get().orElse(new ContextInfo())));
     }
 }

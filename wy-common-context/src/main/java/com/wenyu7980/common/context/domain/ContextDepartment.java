@@ -1,10 +1,10 @@
-package com.wenyu7980.common.authentication.util;
+package com.wenyu7980.common.context.domain;
 
 /**
  *
  * @author wenyu
  */
-public class AuthenticationDepartment {
+public class ContextDepartment {
     /** 部门id */
     private String id;
     /** 业务主体id */

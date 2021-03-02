@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.wenyu7980.common.authentication.AuthenticationConfig
+com.wenyu7980.common.context.ContextConfig

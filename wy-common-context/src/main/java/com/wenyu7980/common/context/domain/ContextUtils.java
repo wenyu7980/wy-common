@@ -1,4 +1,4 @@
-package com.wenyu7980.common.authentication.util;
+package com.wenyu7980.common.context.domain;
 
 import java.util.Optional;
 
@@ -6,10 +6,10 @@ import java.util.Optional;
  *
  * @author wenyu
  */
-public class AuthenticationUtils {
-    private static final ThreadLocal<AuthenticationInfo> LOCALS = new InheritableThreadLocal<>();
+public class ContextUtils {
+    private static final ThreadLocal<ContextInfo> LOCALS = new InheritableThreadLocal<>();
 
-    public static void set(AuthenticationInfo info) {
+    public static void set(ContextInfo info) {
         LOCALS.set(info);
     }
 
@@ -22,10 +22,10 @@ public class AuthenticationUtils {
     }
 
     public static void initSystem() {
-        LOCALS.set(new AuthenticationInfo());
+        LOCALS.set(new ContextInfo());
     }
 
-    public static Optional<AuthenticationInfo> get() {
+    public static Optional<ContextInfo> get() {
         return Optional.ofNullable(LOCALS.get());
     }
 }
