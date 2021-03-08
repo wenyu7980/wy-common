@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-authentication-config</artifactId>
+            <artifactId>wy-common-context-starter</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
@@ -22,17 +22,17 @@
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-data-auth</artifactId>
+            <artifactId>wy-common-data-auth-starter</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-exception-config</artifactId>
+            <artifactId>wy-common-exception-starter</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-gson-config</artifactId>
+            <artifactId>wy-common-gson-starter</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>

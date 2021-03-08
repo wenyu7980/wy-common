@@ -1,6 +1,6 @@
 package com.wenyu7980.common.data.auth;
 
-import com.wenyu7980.common.authentication.util.AuthenticationUtils;
+import com.wenyu7980.common.context.domain.ContextUtils;
 import com.wenyu7980.common.data.auth.core.AuthDataAspectJ;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +20,8 @@ public class AuthenticationDataConfiguration {
             if (!check) {
                 return true;
             }
-            if (AuthenticationUtils.get().isPresent()) {
-                return AuthenticationUtils.get().get().getDepartmentByResource(resource).stream()
+            if (ContextUtils.get().isPresent()) {
+                return ContextUtils.get().get().getDepartmentByResource(resource).stream()
                   .anyMatch(v -> Objects.equals(v, value));
             }
             return false;

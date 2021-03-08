@@ -1,6 +1,6 @@
 package com.wenyu7980.data.jpa.audit;
 
-import com.wenyu7980.common.authentication.util.AuthenticationUtils;
+import com.wenyu7980.common.context.domain.ContextUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -20,7 +20,7 @@ public class AuditConfiguration {
         return new AuditorAware<String>() {
             @Override
             public Optional<String> getCurrentAuditor() {
-                return Optional.of(AuthenticationUtils.userId());
+                return Optional.of(ContextUtils.userId());
             }
         };
     }

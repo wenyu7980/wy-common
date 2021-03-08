@@ -18,9 +18,8 @@
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-authentication-util</artifactId>
+            <artifactId>wy-common-context</artifactId>
             <version>1.0.0</version>
-            <optional>true</optional>
         </dependency>
     </dependencies>
     <build>

@@ -10,19 +10,19 @@
     <version>1.0.0</version>
     <modules>
         <module>wy-common-exception</module>
-        <module>wy-common-exception-config</module>
+        <module>wy-common-exception-starter</module>
         <module>wy-common-gson</module>
-        <module>wy-common-gson-config</module>
+        <module>wy-common-gson-starter</module>
         <module>wy-common-feign-client</module>
         <module>wy-common-context</module>
-        <module>wy-common-context-config</module>
+        <module>wy-common-context-starter</module>
         <module>wy-common-data-jpa-query</module>
         <module>wy-common-data-jpa-generator</module>
         <module>wy-common-data-jpa-audit</module>
         <module>wy-common-data-jpa-dependencies</module>
         <module>wy-common-converter-kryo</module>
         <module>wy-common-data-auth-annotation</module>
-        <module>wy-common-data-auth</module>
+        <module>wy-common-data-auth-starter</module>
         <module>wy-common-dependencies</module>
     </modules>
     <parent>

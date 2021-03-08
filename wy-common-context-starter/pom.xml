@@ -8,24 +8,35 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>wy-common-data-auth</artifactId>
+    <artifactId>wy-common-context-starter</artifactId>
     <dependencies>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-data-auth-util</artifactId>
+            <artifactId>wy-common-context</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-authentication-util</artifactId>
+            <artifactId>wy-common-gson</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
