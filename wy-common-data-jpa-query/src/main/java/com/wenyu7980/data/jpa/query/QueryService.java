@@ -46,4 +46,13 @@ public interface QueryService<T> {
      * @return
      */
     long count(QueryPredicateExpress express);
+
+    /**
+     * 是否存在
+     * @param express
+     * @return
+     */
+    default boolean exists(QueryPredicateExpress express) {
+        return count(express) > 0;
+    }
 }
