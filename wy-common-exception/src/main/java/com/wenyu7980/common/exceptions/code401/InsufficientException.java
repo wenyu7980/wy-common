@@ -1,4 +1,4 @@
-package com.wenyu7980.common.exceptions.code400.code401;
+package com.wenyu7980.common.exceptions.code401;
 
 import com.wenyu7980.common.exceptions.AbstractException;
 

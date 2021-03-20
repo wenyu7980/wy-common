@@ -2,7 +2,7 @@ package com.wenyu7980.common.feign.config;
 
 import com.google.gson.Gson;
 import com.wenyu7980.common.exceptions.ErrorResponseBody;
-import com.wenyu7980.common.exceptions.code400.code401.InsufficientException;
+import com.wenyu7980.common.exceptions.code401.InsufficientException;
 import com.wenyu7980.common.exceptions.code403.LoginFailException;
 import com.wenyu7980.common.exceptions.code404.NotFoundException;
 import com.wenyu7980.common.exceptions.code500.SystemException;
