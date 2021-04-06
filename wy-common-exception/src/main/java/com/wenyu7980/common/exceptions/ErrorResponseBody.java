@@ -16,12 +16,13 @@ public class ErrorResponseBody {
         this.message = message;
     }
 
-    public int getCode() {
-        return code;
+    public void setCodeMessage(int code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public int getCode() {
+        return code;
     }
 
     public String getMessage() {
