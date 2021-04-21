@@ -45,4 +45,16 @@ public abstract class KryoConverterUtils {
             POOLS.free(kryo);
         }
     }
+
+    public static Object read(byte[] bytes) {
+        if (bytes == null) {
+            return null;
+        }
+        Kryo kryo = POOLS.obtain();
+        try (Input input = new Input(bytes)) {
+            return kryo.readClassAndObject(input);
+        } finally {
+            POOLS.free(kryo);
+        }
+    }
 }
