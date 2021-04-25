@@ -25,6 +25,7 @@
         <module>wy-common-data-auth-starter</module>
         <module>wy-common-dependencies</module>
         <module>wy-common-cache-redis-starter</module>
+        <module>wy-common-statemachine</module>
     </modules>
     <parent>
         <groupId>com.wenyu7980</groupId>

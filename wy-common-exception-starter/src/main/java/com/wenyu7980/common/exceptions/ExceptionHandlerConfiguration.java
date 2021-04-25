@@ -33,6 +33,16 @@ public class ExceptionHandlerConfiguration {
             return new ResponseEntity<>(new ErrorResponseBody(exception.getCode(), exception.getMessage()),
               HttpStatus.resolve(exception.getStatus()));
         }
+        if (e.getCause() instanceof AbstractException) {
+            AbstractException exception = (AbstractException) e.getCause();
+            if (exception instanceof SystemException) {
+                LOGGER.error("开发异常", e);
+            } else {
+                LOGGER.debug("异常", e);
+            }
+            return new ResponseEntity<>(new ErrorResponseBody(exception.getCode(), exception.getMessage()),
+              HttpStatus.resolve(exception.getStatus()));
+        }
         if (e instanceof MethodArgumentNotValidException) {
             BindingResult result = ((MethodArgumentNotValidException) e).getBindingResult();
             String message = result.getFieldErrors().stream()
