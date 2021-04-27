@@ -22,19 +22,9 @@ public class ExceptionHandlerConfiguration {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandlerConfiguration.class);
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseBody> handler(Exception e) {
+    public ResponseEntity<ErrorResponseBody> handler(Throwable e) {
         if (e instanceof AbstractException) {
             AbstractException exception = (AbstractException) e;
-            if (exception instanceof SystemException) {
-                LOGGER.error("开发异常", e);
-            } else {
-                LOGGER.debug("异常", e);
-            }
-            return new ResponseEntity<>(new ErrorResponseBody(exception.getCode(), exception.getMessage()),
-              HttpStatus.resolve(exception.getStatus()));
-        }
-        if (e.getCause() instanceof AbstractException) {
-            AbstractException exception = (AbstractException) e.getCause();
             if (exception instanceof SystemException) {
                 LOGGER.error("开发异常", e);
             } else {
@@ -49,6 +39,9 @@ public class ExceptionHandlerConfiguration {
               .map(error -> error.getField() + error.getDefaultMessage() + ",值:" + error.getRejectedValue())
               .collect(Collectors.joining(","));
             return new ResponseEntity<>(new ErrorResponseBody(400, message), HttpStatus.BAD_REQUEST);
+        }
+        if (e.getCause() != null) {
+            return handler(e.getCause());
         }
         LOGGER.error("系统错误", e);
         return new ResponseEntity<>(new ErrorResponseBody(500, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);

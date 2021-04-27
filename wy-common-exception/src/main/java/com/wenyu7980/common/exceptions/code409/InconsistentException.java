@@ -7,7 +7,9 @@ import com.wenyu7980.common.exceptions.AbstractException;
  * @author wenyu
  */
 public class InconsistentException extends AbstractException {
+    public static final int CODE = 2;
+
     public InconsistentException(String message, Object... args) {
-        super(409, 2, message, args);
+        super(409, CODE, message, args);
     }
 }

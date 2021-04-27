@@ -7,7 +7,10 @@ import com.wenyu7980.common.exceptions.AbstractException;
  * @author wenyu
  */
 public class TokenExpiredException extends AbstractException {
+
+    public static final int CODE = 2;
+
     public TokenExpiredException(String message, Object... args) {
-        super(401, 2, message, args);
+        super(401, CODE, message, args);
     }
 }

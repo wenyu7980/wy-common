@@ -16,6 +16,12 @@ public abstract class AbstractException extends RuntimeException {
         this.code = code;
     }
 
+    public AbstractException(int status, int code, Throwable cause, String message, Object... args) {
+        super(MessageFormat.format(message, args), cause);
+        this.status = status;
+        this.code = code;
+    }
+
     public int getStatus() {
         return status;
     }

@@ -9,6 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>wy-common-exception</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.wenyu7980</groupId>
+            <artifactId>decisiontable</artifactId>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

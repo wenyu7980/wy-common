@@ -1,11 +1,9 @@
 package com.wenyu7980.common.feign.config;
 
 import com.google.gson.Gson;
+import com.netflix.hystrix.exception.HystrixBadRequestException;
 import com.wenyu7980.common.exceptions.ErrorResponseBody;
-import com.wenyu7980.common.exceptions.code401.InsufficientException;
-import com.wenyu7980.common.exceptions.code403.LoginFailException;
-import com.wenyu7980.common.exceptions.code404.NotFoundException;
-import com.wenyu7980.common.exceptions.code500.SystemException;
+import com.wenyu7980.common.exceptions.ExceptionUtil;
 import com.wenyu7980.common.gson.adapter.GsonUtil;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
@@ -47,29 +45,9 @@ public class FeignClientConfig {
             try {
                 Reader reader = response.body().asReader();
                 ErrorResponseBody body = GSON.fromJson(reader, ErrorResponseBody.class);
-                if (response.status() == 404) {
-                    if (body.getCode() == 1) {
-                        return new NotFoundException(body.getMessage());
-                    }
-                }
-                if (response.status() == 403) {
-                    if (body.getCode() == 1) {
-                        return new LoginFailException(body.getMessage());
-                    }
-                }
-                if (response.status() == 401) {
-                    if (body.getCode() == 1) {
-                        return new InsufficientException(body.getMessage());
-                    }
-                }
-                if (response.status() == 500) {
-                    if (body.getCode() == 1) {
-                        return new SystemException(body.getMessage());
-                    }
-                }
-                throw new SystemException(body.getMessage());
+                return new HystrixBadRequestException(body.getMessage(), ExceptionUtil.getThrowable(body));
             } catch (IOException exception) {
-                return exception;
+                return new HystrixBadRequestException(exception.getMessage(), exception);
             }
         };
     }
