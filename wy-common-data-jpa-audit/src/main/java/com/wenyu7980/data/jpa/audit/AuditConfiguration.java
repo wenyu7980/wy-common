@@ -20,7 +20,7 @@ public class AuditConfiguration {
         return new AuditorAware<String>() {
             @Override
             public Optional<String> getCurrentAuditor() {
-                return Optional.of(ContextUtils.userId());
+                return Optional.ofNullable(ContextUtils.userId());
             }
         };
     }

@@ -23,6 +23,16 @@ public interface QueryService<T> {
     List<T> findList(QueryPredicateExpress express, Consumer<Root<T>> setFetch);
 
     /**
+     * 列表查询
+     * @param express
+     * @return
+     */
+    default List<T> findList(QueryPredicateExpress express) {
+        return findList(express, root -> {
+        });
+    }
+
+    /**
      * 列表排序查询
      * @param express
      * @param sort
@@ -30,6 +40,17 @@ public interface QueryService<T> {
      * @return
      */
     List<T> findList(QueryPredicateExpress express, Sort sort, Consumer<Root<T>> setFetch);
+
+    /**
+     * 列表排序查询
+     * @param express
+     * @param sort
+     * @return
+     */
+    default List<T> findList(QueryPredicateExpress express, Sort sort) {
+        return findList(express, sort, root -> {
+        });
+    }
 
     /**
      * 分页查询
