@@ -12,11 +12,6 @@
     <dependencies>
         <dependency>
             <groupId>com.wenyu7980</groupId>
-            <artifactId>wy-common-data-jpa-audit</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wenyu7980</groupId>
             <artifactId>wy-common-data-jpa-generator</artifactId>
             <version>1.0.0</version>
         </dependency>
@@ -26,18 +21,4 @@
             <version>1.0.0</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

@@ -14,15 +14,10 @@
         <module>wy-common-gson</module>
         <module>wy-common-gson-starter</module>
         <module>wy-common-feign-client</module>
-        <module>wy-common-context</module>
-        <module>wy-common-context-starter</module>
         <module>wy-common-data-jpa-query</module>
         <module>wy-common-data-jpa-generator</module>
-        <module>wy-common-data-jpa-audit</module>
         <module>wy-common-data-jpa-dependencies</module>
         <module>wy-common-converter-kryo</module>
-        <module>wy-common-data-auth-annotation</module>
-        <module>wy-common-data-auth-starter</module>
         <module>wy-common-dependencies</module>
         <module>wy-common-cache-redis-starter</module>
         <module>wy-common-statemachine</module>
@@ -37,6 +32,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compile-plugin.version}</version>
+                <inherited>true</inherited>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <inherited>true</inherited>
             </plugin>
         </plugins>
     </build>

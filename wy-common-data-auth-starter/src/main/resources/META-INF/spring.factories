@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.wenyu7980.common.data.auth.AuthenticationDataConfiguration
