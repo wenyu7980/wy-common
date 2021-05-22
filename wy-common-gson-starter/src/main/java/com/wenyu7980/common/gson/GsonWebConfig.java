@@ -20,14 +20,19 @@ public class GsonWebConfig implements WebMvcConfigurer {
     private final Gson GSON;
 
     public GsonWebConfig() {
-        this.GSON = GsonUtil.gsonBuilder()
-          // 处理Swagger UI页面异常
-          .registerTypeAdapter(Json.class, new JsonSerializer<Json>() {
-              @Override
-              public JsonElement serialize(Json src, Type typeOfSrc, JsonSerializationContext context) {
-                  return JsonParser.parseString(src.value());
-              }
-          }).create();
+        GsonBuilder builder = GsonUtil.gsonBuilder();
+        try {
+            Class.forName("springfox.documentation.spring.web.json.Json");
+            // 处理Swagger UI页面异常
+            builder.registerTypeAdapter(Json.class, new JsonSerializer<Json>() {
+                @Override
+                public JsonElement serialize(Json src, Type typeOfSrc, JsonSerializationContext context) {
+                    return JsonParser.parseString(src.value());
+                }
+            });
+        } catch (ClassNotFoundException e) {
+        }
+        this.GSON = builder.create();
     }
 
     @Override
