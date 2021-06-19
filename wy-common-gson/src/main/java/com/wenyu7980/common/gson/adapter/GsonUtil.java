@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  * @author wenyu
  */
 public class GsonUtil {
+    private static final Gson GSON = gsonBuilder().create();
 
     public static GsonBuilder gsonBuilder() {
         return new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
@@ -18,6 +19,6 @@ public class GsonUtil {
     }
 
     public static Gson gson() {
-        return gsonBuilder().create();
+        return GSON;
     }
 }
